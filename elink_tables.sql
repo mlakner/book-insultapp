@@ -18,6 +18,7 @@ CREATE TABLE SLA_PENALTY
 )
 ;
 
+
 --PostgreSQL automatically creates an index for each unique constraint and primary key constraint to enforce uniqueness. Thus, it is not necessary to create an index explicitly for primary key columns. 
 --not neeed:
 CREATE INDEX IDX3_SLA_PENALTY ON SLA_PENALTY (SLA_NAME);
@@ -37,6 +38,8 @@ CREATE TABLE SLA_SOLUTION
 )
 ;
 
+
+
 CREATE TABLE SLA_SERVICELEVEL
 (
 	SLA_NAME	    varchar(255) PRIMARY KEY NOT NULL,
@@ -53,5 +56,35 @@ CREATE TABLE SLA_SERVICELEVEL
     CONSTRAINT SLA_SERVICELEVEL_CHK_SOLCF CHECK (SOLCOMMIT_FLAG IN (0,1))
 )
 ;
+
+--INSERT 
+--SLA_PENALTY
+INSERT INTO SLA_PENALTY
+VALUES ('sla1', 111111, 999999, 122222, '2018.01.', '2020.01' );
+
+INSERT INTO SLA_PENALTY
+VALUES ('sla2', 222222, 888888, 322222, '2017.01.', '2019.01' );
+
+INSERT INTO SLA_PENALTY
+VALUES ('sla3', 333333, 777777, 422222, '2016.01.', '2021.01' );
+
+--SLA_SOLUTION
+INSERT INTO SLA_SOLUTION
+VALUES ('solution1', '180101', 'customer1' 111111, '2018.02');
+
+INSERT INTO SLA_SOLUTION
+VALUES ('solution2', '170101', 'customer2' 111112, '2017.02');
+
+--SLA_SERVICELEVEL
+INSERT INTO SLA_SERVICELEVEL
+VALUES ('sla1', 555, 1, 2, 'version1', 0, '2018.01.', '2020.01');
+
+INSERT INTO SLA_SERVICELEVEL
+VALUES ('sla2', 666, 0, 2, 'version2', 0, '2017.01.', '2019.01');
+
+INSERT INTO SLA_SERVICELEVEL
+VALUES ('sla13', 555, 0, 1, 'version1', 3, '2016.01.', '2021.01');
+
+
 END;
 COMMIT;
