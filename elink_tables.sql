@@ -70,10 +70,10 @@ VALUES ('IS__1h_gold3_9992_5x9h', 333333, 777777, 155, '2016.01.', '2021.01' );
 
 --SLA_SOLUTION
 INSERT INTO SLA_SOLUTION
-VALUES ('solution1', '180101', 'customer1' 50, '2018');
+VALUES ('solution1', '180101', 'customer1', 150, '2018');
 
 INSERT INTO SLA_SOLUTION
-VALUES ('solution2', '170101', 'customer2' 30, '2017');
+VALUES ('solution2', '170101', 'customer2', 300, '2017');
 
 --SLA_SERVICELEVEL
 INSERT INTO SLA_SERVICELEVEL
