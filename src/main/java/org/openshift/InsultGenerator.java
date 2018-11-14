@@ -41,11 +41,11 @@ public class InsultGenerator {
         System.out.println("PostgreSQL JDBC Driver Registered!");
         
         Connection testconnection = null;
-        try {
+     /*    try {
 	    testconnection = DriverManager.getConnection(databaseURL, username, password);
             if (testconnection != null) { 
             String SQL_SLA_PENALTY = "select * from SLA_PENALTY";
-		
+			String SQL_SLA_SOLUTION = "select * from SLA_SOLUTION";
             
             String returnstring =  "";          
             //returnstring += "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
@@ -71,13 +71,13 @@ public class InsultGenerator {
             	System.out.println("Testconnection Failed! Check output console");
 		e.printStackTrace();
 		return "TestConnection Failed! Check output console";
-		}
+		} */
 		
 //*******************próba*****************************************
  try {
 	    testconnection = DriverManager.getConnection(databaseURL, username, password);
             if (testconnection != null) { 
-			String SQL_SLA_SOLUTION = "select * from SLA_SOLUTION";
+			
 			         
             String returnstring =  "";          
             //returnstring += "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
