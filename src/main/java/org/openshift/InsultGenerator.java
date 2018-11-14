@@ -57,7 +57,7 @@ public class InsultGenerator {
 
 
              while (rs.next()) { 
-                       returnstring +=  String.format( + newline, rs.getString("SOLUTION"), rs.getString("RECORD_DATE"), rs.getString("CUSTOMER"), rs.getString("NUMBER_ACTIVE_SPS"), rs.getString("CANCELLATION_DATE")); 
+                       returnstring +=  String.format( newline, rs.getString("SOLUTION"), rs.getString("RECORD_DATE"), rs.getString("CUSTOMER"), rs.getString("NUMBER_ACTIVE_SPS"), rs.getString("CANCELLATION_DATE")); 
                       returnstring += newline;
                       
             }
