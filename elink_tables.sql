@@ -53,7 +53,7 @@ INSERT INTO SLA_SOLUTION
 VALUES ('solution1', '200301', 'customer1', 150, '2018');
 
 INSERT INTO SLA_SOLUTION
-VALUES ('solution2', '190001', 'customer2', 300, '');
+VALUES ('solution2', '190001', 'customer2', 300, '2019');
 
 CREATE TABLE SLA_SERVICELEVEL
 (
