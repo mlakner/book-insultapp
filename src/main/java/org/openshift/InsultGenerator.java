@@ -41,7 +41,7 @@ public class InsultGenerator {
         System.out.println("PostgreSQL JDBC Driver Registered!");
         
         Connection testconnection = null;
-     /*    try {
+        try {
 	    testconnection = DriverManager.getConnection(databaseURL, username, password);
             if (testconnection != null) { 
             String SQL_SLA_PENALTY = "select * from SLA_PENALTY";
@@ -71,40 +71,9 @@ public class InsultGenerator {
             	System.out.println("Testconnection Failed! Check output console");
 		e.printStackTrace();
 		return "TestConnection Failed! Check output console";
-		} */
+		} 
 		
-//*******************próba*****************************************
- try {
-	    testconnection = DriverManager.getConnection(databaseURL, username, password);
-            if (testconnection != null) { 
-			
-			         
-            String returnstring =  "";          
-            //returnstring += "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
-            Statement stmt = testconnection.createStatement();
-            ResultSet rs = stmt.executeQuery(SQL_SLA_SOLUTION); 
-            returnstring += "Content of SLA_SOLUTION" + System.getProperty("line.separator");
-            //returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
-            returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s", "SOLUTION", "RECORD_DATE", "CUSTOMER", "NUMBER_ACTIVE_SPS", "CANCELLATION_DATE");
-            returnstring += newline;
 
-
-            while (rs.next()) { 
-                       returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s" + newline, rs.getString("SOLUTION"), rs.getString("RECORD_DATE"), rs.getString("CUSTOMER"), rs.getString("NUMBER_ACTIVE_SPS"), rs.getString("CANCELLATION_DATE")); 
-                      returnstring += newline;
-                      
-            } 
-            rs.close();
-            
-            testconnection.close();
-            return returnstring; 
-            }
-    	} catch (Exception e) {
-            	System.out.println("Testconnection Failed! Check output console");
-		e.printStackTrace();
-		return "TestConnection Failed! Check output console";
-		}
-    	 
 		 
 //******************************         
  	try { 
