@@ -40,53 +40,19 @@ public class InsultGenerator {
 		}        
         System.out.println("PostgreSQL JDBC Driver Registered!");
         
-        /* Connection testconnection = null;
-         try {
+        Connection testconnection = null;
+        try {
 	    testconnection = DriverManager.getConnection(databaseURL, username, password);
             if (testconnection != null) { 
-            String SQL_SLA_PENALTY = "select * from SLA_PENALTY";
-			
+            String SQL_SLA_SOLUTION = "select * from SLA_SOLUTION";
             
-            String returnstring =  "";          
-            //returnstring += "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
-            Statement stmt = testconnection.createStatement();
-            ResultSet rs = stmt.executeQuery(SQL_SLA_PENALTY); 
-            returnstring += "Content of SLA_PENALTY" + System.getProperty("line.separator");
-            //returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
-            returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s", "SLA_NAME", "LIMIT_DEV_MIN", "LIMIT_DEV_MAX", "PENALTY_REL", "VALID_FROM", "VALID_TO");
-            returnstring += newline;
-
-
-            while (rs.next()) { 
-                       returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s" + newline, rs.getString("SLA_NAME"), rs.getString("LIMIT_DEV_MIN"), rs.getString("LIMIT_DEV_MAX"), rs.getString("PENALTY_REL"), rs.getString("VALID_FROM"),rs.getString("VALID_TO")); 
-                      returnstring += newline;
-                      
-            } 
-            rs.close();
-            
-            testconnection.close();
-            return returnstring; 
-            }
-    	} catch (Exception e) {
-            	System.out.println("Testconnection Failed! Check output console");
-		e.printStackTrace();
-		return "TestConnection Failed! Check output console";
-		}  
-		 */
-//*******************próba*****************************************
-Connection testconnection = null;
- try {
-	    testconnection = DriverManager.getConnection(databaseURL, username, password);
-            if (testconnection != null) { 
-			String SQL_SLA_SOLUTION = "select * from SLA_SOLUTION";
-			         
             String returnstring =  "";          
             //returnstring += "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
             Statement stmt = testconnection.createStatement();
             ResultSet rs = stmt.executeQuery(SQL_SLA_SOLUTION); 
             returnstring += "Content of SLA_SOLUTION" + System.getProperty("line.separator");
             //returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
-            returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s", "SOLUTION", "RECORD_DATE", "CUSTOMER", "NUMBER_ACTIVE_SPS", "CANCELLATION_DATE");
+            returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s", "SOLUTION", "RECORD_DATE", "CUSTOMER", "NUMBER_ACTIVE_SPS", "CANCELLATION_DATE" );
             returnstring += newline;
 
 
@@ -106,9 +72,8 @@ Connection testconnection = null;
 		return "TestConnection Failed! Check output console";
 		}
     	 
-		 
-//******************************         
- /* 	try { 
+         
+ 	try { 
 		Connection connection = DriverManager.getConnection(databaseURL, username, password); 
 		if (connection != null) { 
  				//String SQL = "select a.string AS first, b.string AS second, c.string AS noun from short_adjective a , long_adjective b, noun c ORDER BY random() limit 1"; 
@@ -172,7 +137,7 @@ Connection testconnection = null;
  			} 
  		} catch (Exception e) { 
  			return "Database connection problem!"; 
- 		}  */
+ 		} 
  		return querry_result; 
  	} //public String generateInsult()
 } 
