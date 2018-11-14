@@ -45,7 +45,7 @@ public class InsultGenerator {
 	    testconnection = DriverManager.getConnection(databaseURL, username, password);
             if (testconnection != null) { 
             String SQL_SLA_PENALTY = "select * from SLA_PENALTY";
-			String SQL_SLA_SOLUTION = "select * from SLA_SOLUTION";
+			
             
             String returnstring =  "";          
             //returnstring += "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
@@ -77,7 +77,7 @@ public class InsultGenerator {
  try {
 	    testconnection = DriverManager.getConnection(databaseURL, username, password);
             if (testconnection != null) { 
-			
+			String SQL_SLA_SOLUTION = "select * from SLA_SOLUTION";
 			         
             String returnstring =  "";          
             //returnstring += "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
