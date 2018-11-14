@@ -49,19 +49,19 @@ public class InsultGenerator {
             String returnstring =  "";          
             //returnstring += "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
             Statement stmt = testconnection.createStatement();
-            ResultSet rs = stmt.executeQuery(SQL_SLA_SOLUTION); 
+            //ResultSet rs = stmt.executeQuery(SQL_SLA_SOLUTION); 
             returnstring += "Content of SLA_SOLUTION" + System.getProperty("line.separator");
             //returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
             returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  ", "SOLUTION", "RECORD_DATE", "CUSTOMER", "NUMBER_ACTIVE_SPS", "CANCELLATION_DATE");
             returnstring += newline;
 
 
-            while (rs.next()) { 
+           /*  while (rs.next()) { 
                        returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s" + newline, rs.getString("SOLUTION"), rs.getString("RECORD_DATE"), rs.getString("CUSTOMER"), rs.getString("NUMBER_ACTIVE_SPS"), rs.getString("CANCELLATION_DATE")); 
                       returnstring += newline;
                       
-            } 
-            rs.close();
+            }  */
+            //rs.close();
             
             testconnection.close();
             return returnstring; 
