@@ -73,7 +73,7 @@ public class InsultGenerator {
 		}
 		
 		
-		Connection testconnection = null;
+		
         try {
 	    testconnection = DriverManager.getConnection(databaseURL, username, password);
             if (testconnection != null) { 
