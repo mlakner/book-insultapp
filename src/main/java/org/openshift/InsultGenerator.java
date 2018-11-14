@@ -40,7 +40,7 @@ public class InsultGenerator {
 		}        
         System.out.println("PostgreSQL JDBC Driver Registered!");
         
-        Connection testconnection = null;
+        /* Connection testconnection = null;
          try {
 	    testconnection = DriverManager.getConnection(databaseURL, username, password);
             if (testconnection != null) { 
@@ -72,8 +72,9 @@ public class InsultGenerator {
 		e.printStackTrace();
 		return "TestConnection Failed! Check output console";
 		}  
-		
+		 */
 //*******************próba*****************************************
+Connection testconnection = null;
  try {
 	    testconnection = DriverManager.getConnection(databaseURL, username, password);
             if (testconnection != null) { 
