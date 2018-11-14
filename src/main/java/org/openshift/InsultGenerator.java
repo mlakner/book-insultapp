@@ -45,11 +45,13 @@ public class InsultGenerator {
 	    testconnection = DriverManager.getConnection(databaseURL, username, password);
             if (testconnection != null) { 
             String SQL_SLA_SOLUTION = "select * from SLA_SOLUTION";
+			String SQL_SLA_PENALTY = "select * from SLA_PENALTY";
             
             String returnstring =  "";          
             //returnstring += "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
             Statement stmt = testconnection.createStatement();
             ResultSet rs = stmt.executeQuery(SQL_SLA_SOLUTION); 
+			ResultSet rs2 = stmt.executeQuery(SQL_SLA_PENALTY);
             returnstring += "Content of SLA_SOLUTION" + System.getProperty("line.separator");
             //returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
             returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  ", "SOLUTION", "RECORD_DATE", "CUSTOMER", "NUMBER_ACTIVE_SPS", "CANCELLATION_DATE");
@@ -62,6 +64,21 @@ public class InsultGenerator {
                       
             } 
             rs.close();
+			
+			returnstring += "Content of SLA_PENALTY" + System.getProperty("line.separator");
+            //returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
+            returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s", "SLA_NAME", "LIMIT_DEV_MIN", "LIMIT_DEV_MAX", "PENALTY_REL", "VALID_FROM", "VALID_TO");
+            returnstring += newline;
+
+
+            while (rs2.next()) { 
+                       returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s" + newline, rs2.getString("SLA_NAME"), rs2.getString("LIMIT_DEV_MIN"), rs2.getString("LIMIT_DEV_MAX"), rs2.getString("PENALTY_REL"), rs2.getString("VALID_FROM"),rs2.getString("VALID_TO")); 
+                      returnstring += newline;
+                      
+            } 
+            rs2.close();
+			
+			
             
             testconnection.close();
             return returnstring; 
