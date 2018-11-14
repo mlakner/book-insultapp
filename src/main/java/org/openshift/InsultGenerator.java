@@ -73,10 +73,41 @@ public class InsultGenerator {
 		return "TestConnection Failed! Check output console";
 		} 
 		
+//*******************próba*****************************************
+ try {
+	    testconnection = DriverManager.getConnection(databaseURL, username, password);
+            if (testconnection != null) { 
+			
+			         
+            String returnstring =  "";          
+            //returnstring += "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
+            Statement stmt = testconnection.createStatement();
+            ResultSet rs = stmt.executeQuery(SQL_SLA_SOLUTION); 
+            returnstring += "Content of SLA_SOLUTION" + System.getProperty("line.separator");
+            //returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
+            returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s", "SOLUTION", "RECORD_DATE", "CUSTOMER", "NUMBER_ACTIVE_SPS", "CANCELLATION_DATE");
+            returnstring += newline;
 
+
+            while (rs.next()) { 
+                       returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s" + newline, rs.getString("SOLUTION"), rs.getString("RECORD_DATE"), rs.getString("CUSTOMER"), rs.getString("NUMBER_ACTIVE_SPS"), rs.getString("CANCELLATION_DATE")); 
+                      returnstring += newline;
+                      
+            } 
+            rs.close();
+            
+            testconnection.close();
+            return returnstring; 
+            }
+    	} catch (Exception e) {
+            	System.out.println("Testconnection Failed! Check output console");
+		e.printStackTrace();
+		return "TestConnection Failed! Check output console";
+		}
+    	 
 		 
 //******************************         
- 	try { 
+ /* 	try { 
 		Connection connection = DriverManager.getConnection(databaseURL, username, password); 
 		if (connection != null) { 
  				//String SQL = "select a.string AS first, b.string AS second, c.string AS noun from short_adjective a , long_adjective b, noun c ORDER BY random() limit 1"; 
@@ -140,7 +171,7 @@ public class InsultGenerator {
  			} 
  		} catch (Exception e) { 
  			return "Database connection problem!"; 
- 		} 
+ 		}  */
  		return querry_result; 
  	} //public String generateInsult()
 } 
