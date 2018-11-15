@@ -50,7 +50,7 @@ public class InsultGenerator {
             String returnstring =  "";          
             //returnstring += "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
             Statement stmt = testconnection.createStatement();
-			Statenebt stmt2 = testconnection.createStatement();
+			Statement stmt2 = testconnection.createStatement();
             ResultSet rs = stmt.executeQuery(SQL_SLA_SOLUTION); 
 			ResultSet rs2 = stmt2.executeQuery(SQL_SLA_PENALTY);
             returnstring += "Content of SLA_SOLUTION" + System.getProperty("line.separator");
