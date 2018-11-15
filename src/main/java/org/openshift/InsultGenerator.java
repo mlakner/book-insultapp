@@ -51,7 +51,7 @@ public class InsultGenerator {
             //returnstring += "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
             Statement stmt = testconnection.createStatement();
             ResultSet rs = stmt.executeQuery(SQL_SLA_SOLUTION); 
-			//ResultSet rs2 = stmt.executeQuery(SQL_SLA_PENALTY);
+			ResultSet rs2 = stmt.executeQuery(SQL_SLA_PENALTY);
             returnstring += "Content of SLA_SOLUTION" + System.getProperty("line.separator");
             //returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
             returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  ", "SOLUTION", "RECORD_DATE", "CUSTOMER", "NUMBER_ACTIVE_SPS", "CANCELLATION_DATE");
