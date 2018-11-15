@@ -46,13 +46,16 @@ public class InsultGenerator {
             if (testconnection != null) { 
             String SQL_SLA_SOLUTION = "select * from SLA_SOLUTION";
 			String SQL_SLA_PENALTY = "select * from SLA_PENALTY";
+			String SQL_SLA_SERVICELEVEL = "select * from SLA_SERVICELEVEL";
             
             String returnstring =  "";          
             //returnstring += "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
             Statement stmt = testconnection.createStatement();
 			Statement stmt2 = testconnection.createStatement();
+			Statement stmt3 = testconnection.createStatement();
             ResultSet rs = stmt.executeQuery(SQL_SLA_SOLUTION); 
 			ResultSet rs2 = stmt2.executeQuery(SQL_SLA_PENALTY);
+			ResultSet rs3 = stmt3.executeQuery(SQL_SLA_SERVICELEVEL);
             returnstring += "Content of SLA_SOLUTION" + System.getProperty("line.separator");
             //returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
             returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  ", "SOLUTION", "RECORD_DATE", "CUSTOMER", "NUMBER_ACTIVE_SPS", "CANCELLATION_DATE");
@@ -79,6 +82,18 @@ public class InsultGenerator {
             } 
             rs2.close();
 			
+			 returnstring += "Content of SLA_SERVICELEVEL" + System.getProperty("line.separator");
+            //returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
+            returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s %-30.30s %-30.30s", "SLA_NAME", "SPCOMMIT_VALUE", "SOLCOMMIT_FLAG", "SLA_TYPE", "SLA_VERSION", "PROCESS_FLAG", "VALID_FROM", "VALID_TO");
+            returnstring += newline;
+
+
+            while (rs3.next()) { 
+                       returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s %-30.30s %-30.30s" + newline, rs3.getString("SLA_NAME"), rs3.getString("SPCOMMIT_VALUE"), rs3.getString("SOLCOMMIT_FLAG"), rs3.getString("SLA_TYPE"), rs3.getString("SLA_VERSION"),rs3.getString("PROCESS_FLAG"), rs3.getString("VALID_FROM"), rs3.getString("VALID_TO")); 
+                      returnstring += newline;
+                      
+            } 
+            rs3.close();
 			
             
             testconnection.close();
