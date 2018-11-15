@@ -72,12 +72,12 @@ public class InsultGenerator {
             returnstring += newline;
 
 
-           /*  while (rs2.next()) { 
+            while (rs2.next()) { 
                        returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s" + newline, rs2.getString("SLA_NAME"), rs2.getString("LIMIT_DEV_MIN"), rs2.getString("LIMIT_DEV_MAX"), rs2.getString("PENALTY_REL"), rs2.getString("VALID_FROM"),rs2.getString("VALID_TO")); 
                       returnstring += newline;
                       
             } 
-            rs2.close(); */
+            rs2.close();
 			
 			
             
