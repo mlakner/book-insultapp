@@ -18,10 +18,10 @@ public class InsultGenerator {
   try {
 		 
 	//USE DRIVER
-	Class.forName("oracle.jdbc.driver.OracleDriver");
+	
         try {
 		//The forName() method of Class class is used to register the driver class. This method is used to dynamically load the driver class.
-        //Class.forName("oracle.jdbc.driver.OracleDriver");
+        Class.forName("oracle.jdbc.driver.OracleDriver");
         } catch (ClassNotFoundException e) {
                 e.printStackTrace();
                 System.out.println("Where is your Oracle JDBC Driver?");
