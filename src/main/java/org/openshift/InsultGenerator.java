@@ -64,16 +64,16 @@ public class InsultGenerator {
                       
             } 
             rs.close();
-			
-			returnstring += "Content of SLA_PENALTY" + System.getProperty("line.separator");
+			String returnstring2 = "";
+			returnstring2 += "Content of SLA_PENALTY" + System.getProperty("line.separator");
             //returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
-            returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s", "SLA_NAME", "LIMIT_DEV_MIN", "LIMIT_DEV_MAX", "PENALTY_REL", "VALID_FROM", "VALID_TO");
-            returnstring += newline;
+            returnstring2 +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s", "SLA_NAME", "LIMIT_DEV_MIN", "LIMIT_DEV_MAX", "PENALTY_REL", "VALID_FROM", "VALID_TO");
+            returnstring2 += newline;
 
 
             while (rs2.next()) { 
-                       returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s" + newline, rs2.getString("SLA_NAME"), rs2.getString("LIMIT_DEV_MIN"), rs2.getString("LIMIT_DEV_MAX"), rs2.getString("PENALTY_REL"), rs2.getString("VALID_FROM"),rs2.getString("VALID_TO")); 
-                      returnstring += newline;
+                       returnstring2 +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s" + newline, rs2.getString("SLA_NAME"), rs2.getString("LIMIT_DEV_MIN"), rs2.getString("LIMIT_DEV_MAX"), rs2.getString("PENALTY_REL"), rs2.getString("VALID_FROM"),rs2.getString("VALID_TO")); 
+                      returnstring2 += newline;
                       
             } 
             rs2.close();
@@ -82,6 +82,7 @@ public class InsultGenerator {
             
             testconnection.close();
             return returnstring; 
+			return returnstring2;
             }
     	} catch (Exception e) {
             	System.out.println("Testconnection Failed! Check output console");
