@@ -53,3 +53,4 @@ public class InsultGenerator {
 	return "Cannot reach this point";
 
 } 
+}
